@@ -75,11 +75,13 @@ ASSIGN
 CATCH err AS Progress.Lang.Error :
     DEFINE VARIABLE iMessage AS INTEGER NO-UNDO.
     
-    DO WHILE iMessage LT err:NumMessages:
-        cStatus = SUBSTITUTE ("&1~n&2", cStatus, err:GetMessage(iMessage)).
-        iMessage = iMessage + 1.
+    DO WHILE iMessage < err:NumMessages:
+        ASSIGN 
+            cStatus = SUBSTITUTE ("&1~n&2", cStatus, err:GetMessage(iMessage))
+            iMessage = iMessage + 1.
     END.
     IF err:CallStack <> ? THEN DO:
-        cStatus = SUBSTITUTE ("&1~n~nCall Stack:~n&2", cStatus, err:CallStack).
+        ASSIGN 
+            cStatus = SUBSTITUTE ("&1~n~nCall Stack:~n&2", cStatus, err:CallStack).
     END.
 END CATCH.
