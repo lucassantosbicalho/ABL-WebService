@@ -47,26 +47,26 @@ END.
 ASSIGN
     cStatus = "Unknown error!".
 
-/* Load batch based on ROWID passed */
+/* Attaches the srcItem datasource to the ttItem buffer */
 BUFFER ttItem:ATTACH-DATA-SOURCE(DATA-SOURCE srcItem:HANDLE).
 
-/* Set the RESTART-ROWID using the rowid passed back from server. */
+/* Set the RESTART-ROWID using the pRowId passed */
 IF LENGTH(pRowId) > 0 THEN
   DATA-SOURCE srcItem:RESTART-ROWID = TO-ROWID(pRowId).
 
-/* Configura a quantidade de registros */
+/* Set the batch size */
 BUFFER ttItem:BATCH-SIZE = iQty.
 
-/* Set FILL-MODE to EMPTY if this code is running persistently.  */
-IF THIS-PROCEDURE:PERSISTENT THEN
-  BUFFER ttItem:FILL-MODE = "EMPTY".
+/* Empties the table before the FILL operation begins */
+BUFFER ttItem:FILL-MODE = "EMPTY".
 
-/* Fill dataset using above configurations. */
+/* Fill dataset */
 DATASET dsItem:FILL().
 
 /* Get the NEXT-ROWID of DATA-SOURCE to return */
 pRowId = STRING(DATA-SOURCE srcItem:NEXT-ROWID).
 
+/* Detach the datasource */
 BUFFER ttItem:DETACH-DATA-SOURCE().
 
 ASSIGN

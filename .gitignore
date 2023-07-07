@@ -6,3 +6,6 @@ Linkedin articles
 
 # does not ignore the README.md file
 !README.md
+
+# ignore all .zip files
+.zip
