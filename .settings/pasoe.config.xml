@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<PASOEConfigDetails version="12.2">
-    <webapp>ws</webapp>
-    <servers>
-        <server>bicalho.oepas1 (PASOE 12.2)</server>
-    </servers>
-</PASOEConfigDetails>

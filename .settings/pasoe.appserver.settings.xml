@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<module-content version="12.2">
-    <module id="c3fdb232-d962-47ed-8ea9-1bf0d31a996c" name="ws">
-        <resource path="AppServer" publish="true"/>
-    </module>
-</module-content>
