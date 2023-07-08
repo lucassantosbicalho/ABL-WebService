@@ -9,3 +9,15 @@ Linkedin articles
 
 # ignore all .zip files
 .zip
+
+.services
+
+.settings
+
+PASOEContent
+
+.dbconnection
+
+.project
+
+.propath
